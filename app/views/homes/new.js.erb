@@ -1,0 +1,28 @@
+<%# <script>
+    $('#submit').on('click', function(){
+
+        var name = $("#uname").val();
+        var name = $.trim(name)
+
+        var pass = $("#pass").val();
+        var pass = $.trim(pass)
+
+        var cnfpass = $("#cnfpass").val();
+        var cnfpass = $.trim(cnfpass)
+
+        var age = $("#age").val();
+        var number = $.trim(age)
+
+
+    
+        $.ajax({
+        url: "http://localhost:3000/new"
+        type: 'post',
+        data: {username: name, password: password, password_confirmation: cnfpass,age: age},
+        dataType: "JSON",
+        async: false,
+        success: function(data) {
+        }
+        });
+    }
+</script> %>

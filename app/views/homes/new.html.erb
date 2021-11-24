@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<form>
+    <div class="field">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <label for="username"><b>Username</b></label><br>
+                <input type="text" placeholder="Enter Username" name="Username" id="uname"  class='form-control' required>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <label for="psw"><b>Password</b></label><br>
+                <input type="password" placeholder="Enter Password" name="password" id="pass" class='form-control' required>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <label for="psw-repeat"><b>Repeat Password</b></label><br>
+                <input type="password" placeholder="Repeat Password" name="password_confirmation" id="cnfpass" class='form-control' required>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <label for="username"><b>Age</b></label><br>
+                <input type="text" placeholder="Enter age" name="email" id="age" class='form-control' required>
+                <br>
+            </div>
+        </div>
+    </div><br>
+    <div class="field">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <button type="button" class="registerbtn" class="btn btn-primary" >Register</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>    
+    $('.registerbtn').on('click', function(){
+        // debugger
+
+        var name = $("#uname").val();
+        var name = $.trim(name)
+
+        var pass = $("#pass").val();
+        var pass = $.trim(pass)
+
+        var cnfpass = $("#cnfpass").val();
+        var cnfpass = $.trim(cnfpass)
+
+        var age = $("#age").val();
+        var age = $.trim(age)
+
+        $.ajax({
+        url: "/users",
+        type: 'post',
+        data: {username: name, password: pass, password_confirmation: cnfpass,age: age},
+        dataType: "JSON",
+        async: false,
+        success: function(data) {
+        }
+        });
+    });
+</script>
